@@ -1,0 +1,24 @@
+NAME = philo
+CC = cc
+CFLAGS = -Wall -Wextra -Werror
+SRC = main.c utils.c utils1.c init_forks.c threads.c philo_routine.c philo_sim.c
+OBJS = $(SRC:.c=.o)
+
+all:$(NAME)
+
+$(NAME): $(OBJS)
+	@echo "$(YELLOW)Compiling $(NAME)$(NC)"
+	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJS)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
