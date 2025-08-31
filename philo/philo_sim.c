@@ -6,7 +6,7 @@
 /*   By: makboga <makboga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:06:54 by makboga           #+#    #+#             */
-/*   Updated: 2025/08/30 16:21:55 by makboga          ###   ########.fr       */
+/*   Updated: 2025/08/31 13:39:18 by makboga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	check_death_philo(t_sim *sim)
 		{
 			pthread_mutex_lock(&sim->dead_lock);
 			sim->someone_died = 1;
-			printf(RED "%ld %d died\n" RESET, get_current_time()
+			printf("%ld %d died\n", get_current_time()
 				- sim->start_time, sim->philos[i].id);
 			pthread_mutex_unlock(&sim->dead_lock);
 			return (1);

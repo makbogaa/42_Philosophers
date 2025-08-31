@@ -6,7 +6,7 @@
 /*   By: makboga <makboga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:05:59 by makboga           #+#    #+#             */
-/*   Updated: 2025/08/26 13:07:15 by makboga          ###   ########.fr       */
+/*   Updated: 2025/08/31 13:39:02 by makboga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	philo_eat(t_philo *philo)
 	philo->last_meal = get_current_time();
 	philo->meals_eaten++;
 	pthread_mutex_unlock(&philo->sim->meal_lock);
-	print_status(philo, "is eating", GREEN);
+	print_status(philo, "is eating");
 	ft_usleep(philo->sim->time_to_eat, philo);
 	pthread_mutex_lock(&philo->sim->meal_lock);
 	check_and_print(philo);
@@ -54,7 +54,7 @@ void	philo_sleep(t_philo *philo)
 {
 	if (philo_has_died(philo))
 		return ;
-	print_status(philo, "is sleeping", BLUE);
+	print_status(philo, "is sleeping");
 	ft_usleep(philo->sim->time_to_sleep, philo);
 }
 
@@ -62,7 +62,7 @@ void	philo_think(t_philo *philo)
 {
 	if (philo_has_died(philo))
 		return ;
-	print_status(philo, "is thinking", MAGENTA);
+	print_status(philo, "is thinking");
 }
 
 void	*philo_routine(void *arg)
@@ -73,7 +73,7 @@ void	*philo_routine(void *arg)
 	if (philo->sim->num_of_philos == 1)
 	{
 		pthread_mutex_lock(philo->l_fork);
-		print_status(philo, "has taken a fork", CYAN);
+		print_status(philo, "has taken a fork");
 		ft_usleep(philo->sim->time_to_die, philo);
 		pthread_mutex_unlock(philo->l_fork);
 		pthread_mutex_lock(&philo->sim->dead_lock);

@@ -1,13 +1,12 @@
 NAME = philo
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-SRC = main.c utils.c utils1.c init_forks.c threads.c philo_routine.c philo_sim.c
+SRC = main.c utils.c utils_two.c init_forks.c threads.c philo_routine.c philo_sim.c
 OBJS = $(SRC:.c=.o)
 
-all:$(NAME)
+all: $(NAME)
 
 $(NAME): $(OBJS)
-	@echo "$(YELLOW)Compiling $(NAME)$(NC)"
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.c

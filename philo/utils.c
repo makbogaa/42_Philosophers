@@ -6,7 +6,7 @@
 /*   By: makboga <makboga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 12:20:45 by makboga           #+#    #+#             */
-/*   Updated: 2025/08/26 13:10:31 by makboga          ###   ########.fr       */
+/*   Updated: 2025/08/31 13:40:46 by makboga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_error(const char *str)
 {
-	printf(RED "%s" RESET, str);
+	printf("%s", str);
 	exit(EXIT_FAILURE);
 }
 
@@ -41,7 +41,7 @@ void	ft_usleep(long time_in_ms, t_philo *philo)
 	}
 }
 
-void	print_status(t_philo *philo, char *status, char *color)
+void	print_status(t_philo *philo, char *status)
 {
 	long		timestamp;
 
@@ -52,8 +52,7 @@ void	print_status(t_philo *philo, char *status, char *color)
 		return ;
 	}
 	timestamp = get_current_time() - philo->sim->start_time;
-	printf("%s%ld %d %s%s\n", CYAN, timestamp, philo->id, color, status);
-	printf(RESET);
+	printf("%ld %d %s\n", timestamp, philo->id, status);
 	pthread_mutex_unlock(&philo->sim->write_lock);
 }
 

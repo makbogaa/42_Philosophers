@@ -6,7 +6,7 @@
 /*   By: makboga <makboga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 13:01:50 by makboga           #+#    #+#             */
-/*   Updated: 2025/07/07 12:53:28 by makboga          ###   ########.fr       */
+/*   Updated: 2025/08/31 13:38:11 by makboga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,17 +31,17 @@ void	taken_forks(t_philo *philo)
 	if (philo->id % 2 == 0)
 	{
 		pthread_mutex_lock(philo->r_fork);
-		print_status(philo, "has taken a fork", CYAN);
+		print_status(philo, "has taken a fork");
 		pthread_mutex_lock(philo->l_fork);
-		print_status(philo, "has taken a fork", CYAN);
+		print_status(philo, "has taken a fork");
 	}
 	else
 	{
 		usleep(500);
 		pthread_mutex_lock(philo->l_fork);
-		print_status(philo, "has taken a fork", CYAN);
+		print_status(philo, "has taken a fork");
 		pthread_mutex_lock(philo->r_fork);
-		print_status(philo, "has taken a fork", CYAN);
+		print_status(philo, "has taken a fork");
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: makboga <makboga@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 12:17:26 by makboga           #+#    #+#             */
-/*   Updated: 2025/08/30 16:52:08 by makboga          ###   ########.fr       */
+/*   Updated: 2025/08/31 13:38:19 by makboga          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,6 @@
 # include <unistd.h>
 
 # define PHILO_MAX 200
-
-# define RED "\033[31m"
-# define GREEN "\033[32m"
-# define YELLOW "\033[33m"
-# define BLUE "\033[34m"
-# define MAGENTA "\033[35m"
-# define CYAN "\033[36m"
-# define WHITE "\033[37m"
-# define RESET "\033[0m"
 
 typedef struct s_sim	t_sim;
 
@@ -76,8 +67,7 @@ void					init_philos(t_sim *sim);
 void					start_threads(t_sim *sim);
 void					*philo_routine(void *arg);
 long					get_current_time(void);
-void					print_status(t_philo *philo, char *message,
-							char *color);
+void					print_status(t_philo *philo, char *status);
 void					*ft_monitor(void *arg);
 int						philo_has_died(t_philo *philo);
 void					release_forks(t_philo *philo);
